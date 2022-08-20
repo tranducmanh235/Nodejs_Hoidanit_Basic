@@ -18,7 +18,10 @@ let getHomepage = (req, res) => {
 
         // console.log(">>check data inside: ", data);
 
-        return res.render("index.ejs", { dataUser: JSON.stringify(data) });
+        return res.render("index.ejs", {
+            dataUser: data,
+            test: "abc string test",
+        });
     });
 };
 
