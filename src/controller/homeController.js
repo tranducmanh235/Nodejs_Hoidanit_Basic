@@ -17,7 +17,19 @@ let getDetailPage = async (req, res) => {
     return res.send(JSON.stringify(user));
 };
 
+let createNewUser = async (req, res) => {
+    // destructuring
+    let { fname, lname, email, address } = req.body;
+    await pool.execute(
+        "insert into users (firstName, lastName, email, address) values (?, ?, ?, ?)",
+        [fname, lname, email, address]
+    );
+
+    return res.redirect("/");
+};
+
 module.exports = {
     getHomepage,
     getDetailPage,
+    createNewUser,
 };
