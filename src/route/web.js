@@ -37,8 +37,6 @@ let uploadMultipleFiles = multer({
 }).array("multiple_images", 3);
 
 const initWebRoute = (app) => {
-    // app.METHOD(PATH, HANDLER);
-
     router.get("/", homeController.getHomepage);
     router.get("/detail/user/:userId", homeController.getDetailPage);
 
